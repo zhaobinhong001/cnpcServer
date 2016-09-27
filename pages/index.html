@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>电子加油卡管理</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="../dist/css/styles.css">
+
+    <!-- jPages css -->
+    <link rel="stylesheet" href="../dist/css/jPages.css">
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="../dist/css/styles.css">
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- jPages js -->
+    <script type="text/javascript" src="../dist/js/jPages.js"></script>
+
+    <script>
+        $(function () {
+            $("div.holder").jPages({
+                containerID: "movies",
+                previous: "←",
+                next: "→",
+                perPage: 10,
+                delay: 20
+            });
+
+
+            $("div.holderi").jPages({
+                containerID: "inUsemovies",
+                previous: "←",
+                next: "→",
+                perPage: 10,
+                delay: 20
+            });
+
+            $("div.holdert").jPages({
+                containerID: "temporarilyClosedmovies",
+                previous: "←",
+                next: "→",
+                perPage: 10,
+                delay: 20
+            });
+        });
+
+    </script>
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top navbarTop" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+
+            <a class="navbar-brand navbarBrand" href="##">云支付平台</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right navRight">
+            <li class="dropdown">
+                <a class="user-png" href="##">
+
+                </a>
+            </li>
+
+
+            <li class="dropdown" id="user">
+                欢迎您，包四处！
+            </li>
+
+
+            <li class=" ">
+                <a class="" href="login.html" style="background-color: #00a1e5">
+                    <i class="fa fa-sign-out fa-fw out-icon" style="color: #fff;"></i>
+                </a>
+
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="index.html" >
+                            <i class="glyphicon glyphicon-credit-card"></i>
+                            电子加油卡管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settlementSheet.html"><i class="fa fa-shopping-cart"></i> 结算单管理</a>
+                    </li>
+                    <li>
+                        <a href="statistics.html"><i class="fa fa-pie-chart"></i> 统计报表</a>
+                    </li>
+
+                    <li>
+                        <a href="setting.html"><i class="fa fa-cog"></i> 设置管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper" style="background: #f8f8f8">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="pageHeader">电子加油卡管理</h4>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div id="container" class="clearfix">
+                <div id="content" class="defaults">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="option active"><a href="#messages" data-toggle="tab">全部</a></li>
+                                <li class="option"><a href="#inUse" class="inuse" data-toggle="tab">使用中</a></li>
+                                <li class=" option">
+                                    <a href="#temporarilyClosed" class="temporarilyClosed" data-toggle="tab">暂停使用</a>
+                                </li>
+
+
+                                <li class="pull-right col-md-1">
+                                    <span class="input-group-btn sea-span">
+                                        <button class="btn sea" type="button" style="  border-radius: 15px;">
+                                            <i class="fa fa-search" style="color: #fff;"></i>
+                                        </button>
+                                    </span>
+                                </li>
+                                <li class="pull-right col-md-2">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control formCon" id="J-xl-2">
+                                            <span class="input-group-addon groupAddon" id="J-xl-2-btn"><span
+                                                    class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                    </div>
+
+                                </li>
+                                 <span class="pull-right pub">
+                                        -
+                                 </span>
+                                <li class="pull-right col-md-2">
+
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control formCon" id="J-xl-1">
+                                            <span class="input-group-addon groupAddon" id="J-xl-1-btn"><span
+                                                    class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+
+                            <div class="tab-content">
+
+
+                                <div class="panel panel-default tab-pane tabs-up active" id="messages">
+
+
+                                    <table id="" align="center" class="text-center" cellSpacing="1" cellpadding="1" style="margin-top:0px;">
+                                        <tr class="text-center">
+                                            <th style="text-align:center;">
+                                                手机号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                身份证姓名
+                                            </th>
+                                            <th style="text-align:center;">
+                                                身份证号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                卡号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                开通时间
+                                            </th>
+                                            <th style="text-align:center;">
+                                                状态
+                                            </th>
+                                            <th style="text-align:center;">
+                                                操作
+                                            </th>
+                                        </tr>
+
+
+                                        <tbody id="movies" class="textCenter">
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def" onclick="window.location.href='details.html'">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="err">
+                                                暂停使用
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">恢复使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td  class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+
+                                    </table>
+                                    <div class="holder"></div>
+
+
+                                </div>
+                                <!-- Messages Tab Ends -->
+
+
+                                <div class="panel panel-default padd-t-sm tab-pane tabs-up" id="inUse">
+
+
+                                    <table align="center" class="text-center" cellSpacing="1" cellpadding="1" style="margin-top:0px;">
+                                        <tr class="text-center">
+                                            <th style="text-align:center;">
+                                                手机号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                身份证姓名
+                                            </th>
+                                            <th style="text-align:center;">
+                                                身份证号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                卡号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                开通时间
+                                            </th>
+                                            <th style="text-align:center;">
+                                                状态
+                                            </th>
+                                            <th style="text-align:center;">
+                                                操作
+                                            </th>
+                                        </tr>
+
+
+                                        <tbody id="inUsemovies" class="textCenter">
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+
+                                    </table>
+                                    <div class="holderi"></div>
+
+
+                                </div>
+                                <!-- inUse Ends -->
+
+
+                                <div class="panel panel-default tab-pane tabs-up" id="temporarilyClosed">
+
+
+                                    <table align="center" class="text-center" cellSpacing="1" cellpadding="1" style="margin-top:0px;">
+                                        <tr class="text-center">
+                                            <th style="text-align:center;">
+                                                手机号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                身份证姓名
+                                            </th>
+                                            <th style="text-align:center;">
+                                                身份证号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                卡号
+                                            </th>
+                                            <th style="text-align:center;">
+                                                开通时间
+                                            </th>
+                                            <th style="text-align:center;">
+                                                状态
+                                            </th>
+                                            <th style="text-align:center;">
+                                                操作
+                                            </th>
+                                        </tr>
+
+
+                                        <tbody id="temporarilyClosedmovies" class="textCenter">
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                1381199273
+                                            </td>
+                                            <td>
+                                                张三
+                                            </td>
+                                            <td>
+                                                232198198802035673
+                                            </td>
+                                            <td>
+                                                2977-1233-1451
+                                            </td>
+                                            <td>
+                                                2016-02-23
+                                            </td>
+                                            <td class="gre">
+                                                使用中
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-def">查看详情</button>
+                                                <button type="button" class="btn btn-bul" data-toggle="modal" data-target="#myModal">暂停使用
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        </tbody>
+
+
+                                    </table>
+                                    <div class="holdert"></div>
+
+                                </div>
+
+                                <!-- temporarilyClosed End -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!---->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content modalContent">
+                    <div class="modal-header modalHeader">
+                        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+                    </div>
+                    <div class="modal-body">
+                        确定将 <span class="modalUser">张三（232198198802035673）</span> 的电子加油卡置为暂停使用状态？
+                    </div>
+                    <div class="modal-body">
+                        手机号：<span>1381199273</span>
+                    </div>
+                    <div class="modal-body">
+                        备用金：<span>5000.00元</span>
+                    </div>
+                    <div class="modal-body">
+                        卡余额：<span>0.00元</span>
+                    </div>
+                    <div class="modal-footer modalFooter">
+                        <div class="modalBtnBox">
+                            <button type="button" class="btn btn-def modalBtn pull-left" data-dismiss="modal">取消
+                            </button>
+                            <button type="button" class="btn btn-bul modalBtn">确定</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</div>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+
+<!--data js-->
+<script type="text/javascript" src="../dist/js/laydate.dev.js"></script>
+
+<script type="text/javascript">
+    document.getElementById('J-xl-2-btn').onclick = function () {
+        laydate({
+            elem: '#J-xl-2'
+        });
+    }
+    document.getElementById('J-xl-1-btn').onclick = function () {
+        laydate({
+            elem: '#J-xl-1'
+        });
+    }
+
+
+</script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+
+</body>
+
+</html>

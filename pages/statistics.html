@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>统计报表</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="../dist/css/styles.css">
+
+    <!-- jPages css -->
+    <link rel="stylesheet" href="../dist/css/jPages.css">
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="../dist/css/styles.css">
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- jPages js -->
+    <script type="text/javascript" src="../dist/js/jPages.js"></script>
+
+
+    <!--font-->
+
+    <link rel="stylesheet" href="../dist/font/iconfont.css">
+
+    <script>
+        $(function () {
+            $("div.holder").jPages({
+                containerID: "movies",
+                previous: "←",
+                next: "→",
+                perPage: 10,
+                delay: 20
+            });
+
+
+            $("div.holderi").jPages({
+                containerID: "inUsemovies",
+                previous: "←",
+                next: "→",
+                perPage: 10,
+                delay: 20
+            });
+
+        });
+
+    </script>
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top navbarTop" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+
+            <a class="navbar-brand navbarBrand" href="##">云支付平台</a>
+        </div>
+        <!-- /.navbar-header -->
+
+        <ul class="nav navbar-top-links navbar-right navRight">
+            <li class="dropdown">
+                <a class="user-png" href="##">
+
+                </a>
+            </li>
+
+
+            <li class="dropdown" id="user">
+                欢迎您，包四处！
+            </li>
+
+
+            <li class=" ">
+                <a class="" href="login.html" style="background-color: #00a1e5">
+                    <i class="fa fa-sign-out fa-fw out-icon" style="color: #fff;"></i>
+                </a>
+
+            </li>
+            <!-- /.dropdown -->
+        </ul>
+        <!-- /.navbar-top-links -->
+
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li>
+                        <a href="index.html">
+                            <i class="glyphicon glyphicon-credit-card"></i>
+                            电子加油卡管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settlementSheet.html"><i class="fa fa-shopping-cart"></i> 结算单管理</a>
+                    </li>
+                    <li>
+                        <a href="statistics.html"><i class="fa fa-pie-chart"></i> 统计报表</a>
+                    </li>
+
+                    <li>
+                        <a href="setting.html"><i class="fa fa-cog"></i> 设置管理</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.sidebar-collapse -->
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+
+    <!-- Page Content -->
+    <div id="page-wrapper" style="background: #f8f8f8">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="pageHeader">统计报表</h4>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div id="container" class="clearfix">
+                <div id="content" class="defaults">
+                    <div class="row">
+
+                        <div class="col-md-12 carBox">
+                            <div class="numberOfOpening YK">
+                                <div class="oblique"></div>
+                                <span class="fa fa-credit-card" style="font-size: 50px"></span>
+                                <div style="display: inline-block; padding-left: 10px;text-align: left">
+                                    <p id="num">5000张</p>
+                                    <p>已开通电子加油卡数量</p>
+                                </div>
+                            </div>
+                            <div class="numberOfOpening XF">
+                                <div class="oblique"></div>
+                                <i class="icon iconfont icon-mon" style="font-size: 50px">&#xe6c2;</i>
+                                <div style="display: inline-block; padding-left: 10px;text-align: left">
+                                    <p id="salesAmount">50000.00元</p>
+                                    <p>油品消费总金额</p>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-lg-12">
+
+                            <p class="smallH">
+                                <i class="monIcon keyIndexIcon"> </i>昨日关键指标
+                            </p>
+                            <div>
+                                <div class="keyIndex bulp">
+                                    <p>新开通电子加油卡</p>
+                                    <div>220张</div>
+                                </div>
+                                <div class="keyIndex vio">
+                                    <p>油品消费总额</p>
+                                    <div>5000.00元</div>
+                                </div>
+                                <div class="keyIndex gra">
+
+                                    <p>油品消费笔数</p>
+                                    <div>75笔</div>
+                                </div>
+
+                            </div>
+
+
+                            <p class="smallH">
+                                <i class="monIcon detailedIcon"> </i>详细数据
+                            </p>
+
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="option active"><a href="#electroniFuelCard" data-toggle="tab">电子加油卡</a></li>
+                                <li class="option"><a href="#oilConsumption" class="inuse" data-toggle="tab">油品消费</a>
+                                </li>
+
+
+                                <li class="pull-right col-md-1">
+                                    <span class="input-group-btn sea-span">
+                                        <button class="btn sea" type="button" style="  border-radius: 15px;">
+                                            <i class="fa fa-search" style="color: #fff;"></i>
+                                        </button>
+                                    </span>
+                                </li>
+                                <li class="pull-right col-md-2">
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control formCon" id="J-xl-2">
+                                            <span class="input-group-addon groupAddon" id="J-xl-2-btn"><span
+                                                    class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                    </div>
+
+                                </li>
+                                 <span class="pull-right pub">
+                                        -
+                                 </span>
+                                <li class="pull-right col-md-2">
+
+                                    <div class="input-group date">
+                                        <input type="text" class="form-control formCon" id="J-xl-1">
+                                            <span class="input-group-addon groupAddon" id="J-xl-1-btn"><span
+                                                    class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                    </div>
+                                </li>
+
+                                <li class="pull-right col-md-1 dataY" id="dataY">
+                                    <span class="input-group-btn sea-span">
+                                        <button class="btn btn-def" type="button" style="  border-radius: 15px;">
+                                            1日
+                                        </button>
+                                    </span>
+
+                                    <span class="input-group-btn sea-span">
+                                        <button class="btn btn-def" type="button" style="  border-radius: 15px;">
+                                            7日
+                                        </button>
+                                    </span>
+
+                                    <span class="input-group-btn sea-span">
+                                        <button class="btn btn-def" type="button" style="  border-radius: 15px;">
+                                            30日
+                                        </button>
+                                    </span>
+                                </li>
+
+                            </ul>
+
+
+                            <div class="tab-content">
+
+
+                                <div class="panel panel-default tab-pane tabs-up active" id="electroniFuelCard">
+
+
+                                    <table id="" align="center" class="text-center" cellSpacing="1" cellpadding="1"
+                                           style="margin-top:0px;">
+                                        <tr class="text-center">
+                                            <th style="text-align:center;">
+                                                开通电子加油卡量
+                                            </th>
+                                            <th style="text-align:center;">
+                                                未充值数量
+                                            </th>
+                                            <th style="text-align:center;">
+                                                未消费数量
+                                            </th>
+                                            <th style="text-align:center;">
+                                                日期
+                                            </th>
+                                        </tr>
+
+
+                                        <tbody id="movies" class="textCenter">
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                2500张
+                                            </td>
+                                            <td>
+                                                1200张
+                                            </td>
+                                            <td>
+                                                300张
+                                            </td>
+                                            <td>
+                                                2016-02-03
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+
+                                    </table>
+                                    <div class="holder"></div>
+
+
+                                </div>
+                                <!-- Messages Tab Ends -->
+
+
+                                <div class="panel panel-default padd-t-sm tab-pane tabs-up" id="oilConsumption">
+
+
+                                    <table align="center" class="text-center" cellSpacing="1" cellpadding="1"
+                                           style="margin-top:0px;">
+                                        <tr class="text-center">
+                                            <th style="text-align:center;">
+                                                消费总金额
+                                            </th>
+                                            <th style="text-align:center;">
+                                                消费笔数
+                                            </th>
+                                            <th style="text-align:center;">
+                                                消费人数
+                                            </th>
+                                            <th style="text-align:center;">
+                                                消费均价
+                                            </th>
+                                            <th style="text-align:center;">
+                                                日期
+                                            </th>
+                                        </tr>
+
+
+                                        <tbody id="inUsemovies" class="textCenter">
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                10000.00元
+                                            </td>
+                                            <td>
+                                                1321笔
+                                            </td>
+                                            <td>
+                                                122人
+                                            </td>
+                                            <td>
+                                                100元/笔
+                                            </td>
+                                            <td>
+                                                2016-02-04
+                                            </td>
+                                        </tr>
+                                        </tbody>
+
+
+                                    </table>
+                                    <div class="holderi"></div>
+
+
+                                </div>
+                                <!-- inUse Ends -->
+
+
+                                <!-- temporarilyClosed End -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!---->
+
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+</div>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+
+<!--data js-->
+<script type="text/javascript" src="../dist/js/laydate.dev.js"></script>
+
+<script type="text/javascript">
+    document.getElementById('J-xl-2-btn').onclick = function () {
+        laydate({
+            elem: '#J-xl-2'
+        });
+    };
+    document.getElementById('J-xl-1-btn').onclick = function () {
+        laydate({
+            elem: '#J-xl-1'
+        });
+    };
+
+    window.onload = function () {
+        var btns = document.getElementById("dataY").getElementsByTagName("button");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].className = "btn btn-def";
+                }
+                this.className = "btn btn-bul";
+            }
+        }
+    }
+
+
+</script>
+
+<!-- Custom Theme JavaScript -->
+<script src="../dist/js/sb-admin-2.js"></script>
+
+
+</body>
+
+</html>
