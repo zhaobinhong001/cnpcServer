@@ -10760,7 +10760,7 @@
 		 *      } );
 		 *    } )
 		 */
-		"iDisplayLength": 3,
+		"iDisplayLength": 6,
 	
 	
 		/**

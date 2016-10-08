@@ -55,10 +55,21 @@ angular.module('App', [
                         templateUrl: 'js/views/virtualCards.html',
                         controller: function ($scope, $location, $resource, $filter) {
 
-                            $('#basic-datatable').dataTable({
-                                "processing": true,
+                            var table = $('#basic-datatable').DataTable({
+                                "processing": false,
                                 "serverSide": true,
-                                "ajax": "api/web/queryCards",
+                                "ajax": {
+                                    "url": "api/web/queryCards",
+                                    "data": function (d) {
+                                        //添加额外的参数传给服务器
+                                        var starDate = document.getElementById("J-xl-1").value;
+                                        var endDate = document.getElementById("J-xl-2").value;
+                                        if (starDate && endDate) {
+                                            d.startDate = starDate;
+                                            d.endDate = endDate;
+                                        }
+                                    }
+                                },
                                 "columns": [
                                     {
                                         title: "手机号", data: "phone"
@@ -90,11 +101,20 @@ angular.module('App', [
                                     }
                                     }
                                 ],
+                                "initComplete": function initComplete(data) {
+                                $("#dataBtn").on('click', function () {
+                                    console.log("click");
+                                    table.ajax.reload();
+                                })
+
+                            },
                                 "language": {
                                     "paginate": {
                                         "previous": "上一页",
                                         "next": "下一页"
                                     },
+                                    "sProcessing": "处理中...",
+                                    "sLoadingRecords": "载入中...",
                                     "search": "搜索:",
                                     "sSearchPlaceholder": "客户姓名、证件号码、手机号、卡号",
                                     "emptyTable": "无数据",
@@ -202,6 +222,8 @@ angular.module('App', [
                                     "infoFiltered": "(从_MAX_条记录中过滤)"
                                 }
                             });
+
+
 //                            var reports = $resource('/api/angular/reports', null, {
 //                                report: {method: 'POST'}
 //                            });
