@@ -1,0 +1,237 @@
+<link rel="stylesheet" href="css/app/step-dc-style2.css" xmlns="http://www.w3.org/1999/html">
+<script type="text/javascript" src="js/app/step-jquery-dc.js"></script>
+<link href="css/video-js.min.css" rel="stylesheet" type="text/css">
+<script src="js/utils/video.min.js"></script>
+<script>
+    videojs.options.flash.swf = "video-js.swf";
+</script>
+<style type="text/css">
+    .BT {
+
+        height: 52px;
+        line-height: 52px;
+        font-size: 18px;
+        text-align: left;
+        padding-left: 16px;
+        /*margin-top: 50px;*/
+        background: #e7e8e8;
+        border-radius: 10px;
+
+    }
+    .leftX p, .rightX p {
+        padding-left: 12px;
+    }
+    .leftX, .rightX {
+        width: 49%;
+        display: inline-block;
+        text-align: justify;
+        height: 46px;
+        line-height: 46px;
+        color: #000;
+
+    }
+    .right{
+        width: 49%;
+        display: inline-block;
+        text-align: justify;
+        color: #000;
+
+    }
+    .photoImg {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 315px;
+        height: 14em;
+        line-height: 190px;
+        border: 2px dashed #707070;
+        border-radius: 5px;
+        margin-bottom: 3em;
+    }
+    .photoImg img {
+        width: 100%;
+        height: 100%;
+
+        border: none;
+        vertical-align : inherit;
+    }
+    body, html {
+        overflow-x: initial;
+    }
+    .dataTables_wrapper .dataTables_processing {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 40px;
+        margin-left: -50%;
+        margin-top: 25px;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 1.2em;
+    }
+</style>
+<section class="content">
+
+    <!--<header class="top-head container-fluid">-->
+        <!--<button type="button" class="navbar-toggle pull-left">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+        <!--</button>-->
+        <!--<nav class=" navbar-default hidden-xs" role="navigation">-->
+        <!--</nav>-->
+    <!--</header>-->
+    <user-login></user-login>
+
+    <div class="warper container-fluid">
+
+        <div class="page-header">
+            <h3>系统当前位置:坐席中心>>身份审核管理</h3>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">身份审核列表</div>
+            <div class="panel-body" >
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                       id="basic-datatable">
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="reviewViewModal"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="width:1200.22222px;right:280px">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">系统当前位置:坐席中心>>身份审核管理>>审核详情</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="panel-body">
+                            <div class="BT">审核结果：</div>
+                            <p><h4 style="margin-left: 12px; " class="modal-title">人工审核结果：{{revicerecord.state=='0'?"审核中":
+                            (revicerecord.state=='1' ? "批准":(revicerecord.state=='2' ? "拒绝":
+                            (revicerecord.state=='3' ? "异常退出":"")))}}</h4></p>
+                            <div class="leftX" >
+                                <p>证件与报备相似度：<span id="certWithPhotoDegree">{{revicerecord.certWithPhotoDegree*100 | decimal}}%</span></p>
+                                <p>证件与抓拍相似度：<span id="certWithSnapDegree"  >{{revicerecord.certWithSnapDegree*100 | decimal}}%</span></p>
+                                <p>报备与抓拍名称：<span id="snapWithPhotoDegree">{{ revicerecord.snapWithPhotoDegree*100 | decimal}}%</span></p>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">客户基本信息：</div>
+                            <div class="leftX">
+                                <p>审核日期：<span id="updateTime">{{Customer.createTime| dateformat}}&nbsp{{Customer.createTime| timeformat}}</span></p>
+                                <p>客户姓名：<span id="customer_name"  >{{Customer.name}}</span></p>
+                                <p>客户性别：<span id="customer_sex">{{ Customer == null ? '' :  (Customer.sex=='1' ? "男":'女') }}</span></p>
+                            </div>
+                            <div class="rightX">
+                                <p>证件类型：<span id="customer_cert_type">{{Customer == null ? '' : (Customer.certType=='1' ? "身份证":'其他') }}</span></p>
+                                <p>证件号码：<span id="customer_cert_num">{{Customer.certId}}</span></p>
+                                <p>手机号码：<span id="customer_phone">{{Customer.phone}}</span></p>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">客户业务处理信息：</div>
+                            <business-type></business-type>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">公安联网二代身份证信息：</div>
+                            <div class="leftX" style="margin-top:20px">
+                                <td ng-click="">
+                                    <!--<div class=" " class=" borderDashed smallPhoto" style="margin-left: 12px; ">-->
+                                        <!--<img src="{{ Customer ? Customer.certPhotoPath  : ''}}" alt="">-->
+                                    <!--</div>-->
+                                    <div class="photoImg"style="margin-left: 12px; ">
+                                        <a href="photos?path={{Customer.photoPath}}" target="_Blank">
+                                        <img src="/photos?path={{Customer ? Customer.certPhotoPath  : ''}}"  alt="用户照片"></a>
+                                    </div>
+                                </td>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">现场证件照：</div>
+                            <div class="leftX" style="margin-top:20px">
+                                <ng-repeat ng-repeat="image in IMAGEs">
+                                    <td ng-click="" >
+                                        <div class="photoImg" ng-if="image.sortNo=='1'" style="margin-left: 12px;">
+                                            <!--<img src="{{ image.sortNo =='1' ? image.photoPath  : ''}}" alt="身份证正面">-->
+                                            <a href="photos?path={{image.photoPath}}" target="_Blank">
+                                            <img src="/photos?path={{ image.sortNo =='1' ? image.photoPath  : ''}}" alt="身份证正面"></a>
+                                        </div>
+                                    </td>
+                                </ng-repeat>
+                            </div>
+                            <div class="rightX">
+                                <ng-repeat ng-repeat="image in IMAGEs">
+                                    <td ng-click="" >
+                                        <div class="photoImg" ng-if="image.sortNo=='2'" style="margin-left: 12px;">
+                                            <a href="photos?path={{image.photoPath}}" target="_Blank">
+                                            <img src="/photos?path={{ image.sortNo =='2' ? image.photoPath  : ''}}" alt="身份证反面"></a>
+                                        </div>
+                                    </td>
+                                </ng-repeat>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">视屏抓拍：</div>
+                            <ng-repeat ng-repeat="image in IMAGEs">
+                                <div class="photoImg right" style="margin-left: 12px;margin-top:20px" ng-if="image.type=='SNAPSHOT'">
+                                    <a href="photos?path={{image.photoPath}}" target="_Blank">
+                                    <img src="/photos?path={{ image.type=='SNAPSHOT' ? image.photoPath  : ''}}" alt="视屏抓拍"></a>
+                                </div>
+                            </ng-repeat>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">视屏屏幕截屏：</div>
+                            <ng-repeat ng-repeat="image in IMAGEs">
+                                <div class="photoImg right" style="margin-left: 12px;margin-top:20px" ng-if="image.type=='SCREENSHOT'">
+                                    <a href="photos?path={{image.photoPath}}" target="_Blank">
+                                        <img src="/photos?path={{ image.type=='SCREENSHOT' ? image.photoPath  : ''}}" alt="屏幕截屏"></a>
+                                </div>
+                            </ng-repeat>
+                        </div>
+                        <div class="panel-body">
+                            <div class="BT">终端信息：</div>
+                            <div style="padding-left: 12px">
+                                <p><span id="customer">{{connectInformation.updateTime| dateformat}}&nbsp&nbsp{{connectInformation.updateTime| timeformat}}
+                                    &nbsp&nbsp&nbsp&nbsp{{connectInformation.name}}&nbsp&nbsp&nbsp&nbsp{{connectInformation.description}}
+                                    &nbsp&nbsp&nbsp&nbsp{{User.name}}</span></p>
+                            </div>
+                        </div>
+                        <div class="panel-body"style="position: relative">
+                            <div class="BT">视频存档：</div>
+                            <div style="padding-left: 12px;margin-top:20px" >
+                                <video data-setup="{}" id="example_video1" class="video-js vjs-default-skin"
+                                       controls preload="none" width="640" height="264">
+                                    <source type='video/mp4' src="{{revicerecord.videoFilePathA}}"/>
+                                    <!--<track kind="captions" src="./../../libs/jquery.video/demo.captions.vtt" srclang="en" label="English">-->
+                                    <!--<track kind="subtitles" src="./../../libs/jquery.video/demo.captions.vtt" srclang="en" label="English">-->
+                                </video>
+                            </div>
+                            </br>
+                            <div style="padding-left: 12px;margin-top:20px" >
+                                <video id="example_video2" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+                                       data-setup="{}">
+                                    <source type='video/mp4' src="{{revicerecord.videoFilePathB}}"/>
+                                    <!--<track kind="captions" src="./../../libs/jquery.video/demo.captions.vtt" srclang="en" label="English">-->
+                                    <!--<track kind="subtitles" src="./../../libs/jquery.video/demo.captions.vtt" srclang="en" label="English">-->
+                                </video>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/rtc/socket.io-1.4.8.js"></script>
+    <script src="js/rtc/adapter.js"></script>
+</section>
+<script src="js/jquery.dataTables.js"></script>
+<script src="js/DT_bootstrap.js"></script>
+
+<script type="text/javascript">
+</script>

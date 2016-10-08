@@ -1,0 +1,162 @@
+<div id="page-wrapper" style="background: #f8f8f8">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h4 class="pageHeader">电子加油卡管理</h4>
+            </div>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div id="container" class="clearfix">
+            <div id="content" class="defaults">
+                <div class="row">
+
+                    <div class="col-lg-12 tabs-basic">
+                        <ul class="nav nav-tabs" role="tablist" id="tabList_111">
+                            <li data-index="0" class="option active"><a data-toggle="tab">全部</a></li>
+                            <li data-index="1" class="option"><a data-index="1" class="inuse" data-toggle="tab">使用中</a>
+                            </li>
+                            <li data-index="2" class="option">
+                                <a data-index="2" class="temporarilyClosed" data-toggle="tab">暂停使用</a>
+                            </li>
+
+
+                            <li class="pull-right col-md-1">
+                                    <span class="input-group-btn sea-span">
+                                        <button class="btn sea" type="button" style="  border-radius: 15px;">
+                                            <i class="fa fa-search" style="color: #fff;"></i>
+                                        </button>
+                                    </span>
+                            </li>
+                            <li class="pull-right col-md-2">
+                                <div class="input-group date">
+                                    <input type="text" class="form-control formCon" id="J-xl-2">
+                                            <span class="input-group-addon groupAddon" id="J-xl-2-btn"><span
+                                                    class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                </div>
+
+                            </li>
+                                 <span class="pull-right pub">
+                                        -
+                                 </span>
+                            <li class="pull-right col-md-2">
+
+                                <div class="input-group date">
+                                    <input type="text" class="form-control formCon" id="J-xl-1">
+                                            <span class="input-group-addon groupAddon" id="J-xl-1-btn"><span
+                                                    class="glyphicon-calendar glyphicon"></span>
+                                            </span>
+                                </div>
+                            </li>
+
+                        </ul>
+
+
+                        <div class="tab-content tabs-content-placeholder">
+                            <div class="panel panel-default tab-pane tabs-up active" id="all">
+                                <table cellpadding="0" cellspacing="0" border="0"
+                                       class="table table-striped table-bordered"
+                                       id="basic-datatable">
+                                </table>
+                            </div>
+                            <div class="panel panel-default tab-pane tabs-up" id="used">
+                                <table cellpadding="0" cellspacing="0" border="0"
+                                       class="table table-striped table-bordered"
+                                       id="basic-datatable1">
+                                </table>
+                            </div>
+                            <div class="panel panel-default tab-pane tabs-up" id="closed">
+                                <table cellpadding="0" cellspacing="0" border="0"
+                                       class="table table-striped table-bordered"
+                                       id="basic-datatable2">
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <!--<div class="panel-body" >-->
+                        <!--<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"-->
+                        <!--id="basic-datatable">-->
+                        <!--</table>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--<section class="content">-->
+        <!--<user-login></user-login>-->
+
+        <!--<div class="warper container-fluid">-->
+        <!---->
+        <!--<div class="panel panel-default">-->
+        <!--<div class="panel-heading">虚拟卡列表</div>-->
+        <!--<div class="panel-body" >-->
+        <!--<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"-->
+        <!--id="basic-datatable">-->
+        <!--</table>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+
+        <!-- Data Table -->
+    </div>
+</div>
+<script src="../dist/js/datatables/jquery.dataTables.js"></script>
+<script src="../dist/js/datatables/DT_bootstrap.js"></script>
+<script src="../dist/js/datatables/jquery.dataTables-conf.js"></script>
+
+<!--data js-->
+<script type="text/javascript" src="../dist/js/laydate.dev.js"></script>
+
+<script type="text/javascript">
+    document.getElementById('J-xl-2-btn').onclick = function () {
+        laydate({
+            elem: '#J-xl-2'
+        });
+    };
+    document.getElementById('J-xl-1-btn').onclick = function () {
+        laydate({
+            elem: '#J-xl-1'
+        });
+    };
+
+    $(document).ready(function () {
+
+        var widget = $('.tabs-basic');
+
+        var tabs = widget.find('ul li.option'),
+                content = widget.find('.tabs-content-placeholder > div');
+
+
+        tabs.on('click', function (e) {
+
+
+            e.preventDefault();
+
+            // Get the data-index attribute, and show the matching content div
+
+            var index = $(this).data('index');
+
+
+            tabs.removeClass('active');
+            content.removeClass('active');
+
+            $(this).addClass('active');
+
+            content.eq(index).addClass('active');
+
+        });
+
+    });
+
+
+</script>
+<script type="text/javascript">
+    //    $('#tabList_111 a').click(function (e) {
+    //        e.preventDefault();
+    //    })
+</script>

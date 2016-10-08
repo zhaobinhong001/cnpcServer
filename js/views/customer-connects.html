@@ -1,0 +1,21 @@
+<ng-repeat ng-repeat="connect in currentCustomer.connectInformations">
+    <p class="terminalData">
+        <span>{{connect.createTime | dateformat}}</span>
+        <span>{{connect.createTime | timeformat}}</span>
+        <span>{{connect.name}}</span>
+        <span>{{connect.User.name}}</span>
+    </p>
+</ng-repeat>
+<!-- <p class="terminalData">
+    <span>2016-06-24</span>
+    <span>10:24:32</span>
+    <span>iphone 6s</span>
+    <span>坐席A接待</span>
+</p>
+<p class="terminalData">
+    <span>2016-06-24</span>
+    <span>10:24:32</span>
+    <span>iphone 6s</span>
+    <span>坐席A接待</span>
+</p>
+-->

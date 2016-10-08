@@ -1,0 +1,71 @@
+<section class="content">
+
+    <!--<header class="top-head container-fluid">-->
+        <!--<button type="button" class="navbar-toggle pull-left">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+        <!--</button>-->
+        <!--<nav class=" navbar-default hidden-xs" role="navigation">-->
+        <!--</nav>-->
+    <!--</header>-->
+    <user-login></user-login>
+    <div class="modal fade" id="updateUserpwdInfoViewModal"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">系统当前位置:密码修改</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="fromnamess">
+                        <br>
+                        <div class="form-group" id="userpwd">
+                            <input ng-model="userpwd" class="form-control" type="text"
+                                   placeholder="请输入原始密码" maxlength="15">
+                        </div>
+                        <br>
+                        <div class="form-group" id="newUserPwdA">
+                            <input type="text" ng-model="newUserPwdA" class="form-control"
+                                   autocomplete="off" onfocus="this.type='password'"
+                                    placeholder="请输入新密码" maxlength="15">
+                        </div>
+                        <br>
+                        <div class="form-group" id="newUserPwdB">
+                            <input type="text" ng-model="newUserPwdB" class="form-control"
+                                   autocomplete="off" onfocus="this.type='password'"
+                                    placeholder="确认密码" maxlength="15">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="saveUserPwd()">保存</button>
+                    <button ui-sref="homepage" type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismissss()">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" ng-model="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span-->
+                            <!--aria-hidden="true">&times;</span></button>-->
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    密码修改成功,请重新登录!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="btnDismiss()">确定
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/jquery.dataTables.js"></script>
+<script src="js/DT_bootstrap.js"></script>
+<script type="text/javascript">
+</script>

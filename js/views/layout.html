@@ -1,0 +1,98 @@
+
+<!-- Preloader -->
+<!--<div class="loading-container">-->
+    <!--<div class="loading">-->
+        <!--<div class="l1">-->
+            <!--<div></div>-->
+        <!--</div>-->
+        <!--<div class="l2">-->
+            <!--<div></div>-->
+        <!--</div>-->
+        <!--<div class="l3">-->
+            <!--<div></div>-->
+        <!--</div>-->
+        <!--<div class="l4">-->
+            <!--<div></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash; Preloader &ndash;&gt;-->
+
+<!--<div>-->
+    <!--<ng-include src="'js/views/menu.html'"></ng-include>-->
+    <!--<div ui-view="content"></div>-->
+<!--</div>-->
+<!--<script type="text/javascript">-->
+
+    <!--$('.loading-container').fadeOut(1000, function () {-->
+        <!--$(this).hide();-->
+    <!--});-->
+<!--</script>-->
+
+
+
+<div style="height: 100%">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top navbarTop" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+
+        <a class="navbar-brand navbarBrand" href="##">云支付平台</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <ul class="nav navbar-top-links navbar-right navRight">
+        <li class="dropdown">
+            <a class="user-png" href="##">
+
+            </a>
+        </li>
+
+
+        <li class="dropdown" id="user">
+            欢迎您，包四处！
+        </li>
+
+
+        <li class=" ">
+            <a class="" href="login.html" style="background-color: #00a1e5">
+                <i class="fa fa-sign-out fa-fw out-icon" style="color: #fff;"></i>
+            </a>
+
+        </li>
+        <!-- /.dropdown -->
+    </ul>
+
+
+    <div><ng-include src="'js/views/menu.html'"></ng-include></div>
+    </nav>
+<!-- Page Content -->
+<div ui-view="content"></div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal fade" id="warnModal"   tabindex="-1" role="dialog" aria-labelledby="warnModallab">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">提示信息</h4>
+            </div>
+            <div class="modal-body">
+                <p id="warnMessage"> </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">关闭</button>
+                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="review(currentSelectId,0)">拒绝</button>-->
+            </div>
+        </div>
+    </div>
+</div>

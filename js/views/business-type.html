@@ -1,0 +1,61 @@
+<div class="leftX" ng-if="Business.type == '1'">
+    <p>业务类型：<span id="type1">{{Business.type == '1' ? "远程开户" :''}}</span></p>
+    <p>银行卡账号：<span id="bankNum1"  >{{Business.bankNum}}</span></p>
+    <p>客户承诺协议电子签名：
+        <!--<span id="cc">-->
+        <!--<div class="leftX">-->
+    <td ng-click="">
+        <div class="photoImg"style="margin-left: 180px; ">
+            <a href="photos?path={{Business.signImgPath}}" target="_Blank">
+            <img src="/photos?path={{ Business ? Business.signImgPath : ''}}"  alt="电子签名"></a>
+        </div>
+    </td>
+    <!--</div>-->
+    <!--</span>-->
+    </p>
+</div>
+<div class="leftX" ng-if="Business.type == '2'">
+    <p>业务类型：<span id="type2">{{Business.type == '2' ? " 手机银行签约" :''}}</span></p>
+    <p>银行卡账号：<span id="bankNum2"  >{{Business.bankNum}}</span></p>
+    <p>签约手机号码：<span id="phone2">{{Business.phone}}</span></p>
+    <p>单笔最大限额：<span id="perLimit"  >{{Business.perLimit}}</span></p>
+    <p>每日累计限额：<span id="perDayLimit">{{Business.perDayLimit}}</span></p>
+    <p>短信验证起点金额：<span id="smsVerStartAmount"  >{{Business.smsVerStartAmount}}</span></p>
+    <p>客户承诺协议电子签名：
+    <td ng-click="">
+        <div class="photoImg"style="margin-left: 180px; ">
+            <a href="photos?path={{Business.signImgPath}}" target="_Blank">
+            <img src="/photos?path={{ Business ? Business.signImgPath : ''}}"  alt="电子签名"></a>
+        </div>
+    </td>
+    </p>
+</div>
+<div class="leftX" ng-if="Business.type == '3'">
+    <p>业务类型：<span id="type3">{{Business.type == '3' ? " 短信动账提醒签约" :''}}</span></p>
+    <p>银行卡账号：<span id="bankNum3"  >{{Business.bankNum}}</span></p>
+    <p>签约手机号码：<span id="phone3">{{Business.phone}}</span></p>
+    <p>短信动账提醒起点金额：<span id="smsActionStartAmount"  >{{Business.smsActionStartAmount}}</span></p>
+    <p>客户承诺协议电子签名：
+    <td ng-click="">
+        <div class="photoImg"style="margin-left: 180px; ">
+            <a href="photos?path={{Business.signImgPath}}" target="_Blank">
+            <img src="/photos?path={{ Business ? Business.signImgPath : ''}}"  alt="电子签名"></a>
+        </div>
+    </td>
+    </p>
+</div>
+<div class="leftX" ng-if="Business.type == '4'">
+    <p>业务类型：<span id="type4">{{Business.type == '4' ? " 理财产品购买签约" :''}}</span></p>
+    <p>银行卡账号：<span id="bankNum4"  >{{Business.bankNum}}</span></p>
+    <p>风险评估：<span id="assessType">{{Business.assessType}}</span></p>
+    <p>购买产品：<span id="productName"  >{{Business.productName}}</span></p>
+    <p>购买金额：<span id="amount">{{Business.amount}}</span></p>
+    <p>客户承诺协议电子签名：
+    <td ng-click="">
+        <div class="photoImg"style="margin-left: 180px; ">
+            <a href="photos?path={{Business.signImgPath}}" target="_Blank">
+            <img src="/photos?path={{ Business ? Business.signImgPath : ''}}"  alt="电子签名"></a>
+        </div>
+    </td>
+    </p>
+</div>

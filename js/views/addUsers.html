@@ -1,0 +1,134 @@
+<section class="content">
+    <!--<header class="top-head container-fluid">-->
+        <!--<button type="button" class="navbar-toggle pull-left">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+        <!--</button>-->
+        <!--<nav class=" navbar-default hidden-xs" role="navigation">-->
+        <!--</nav>-->
+    <!--</header>-->
+    <user-login></user-login>
+    <div class="warper container-fluid">
+        <div class="page-header">
+            <h3>系统当前位置:账户中心>>账户管理>>账户添加</h3>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">添加账户表单</div>
+
+            <div class="panel-body">
+                <div ng-if="status && status != 200">
+                    <div class="alert alert-danger" role="alert">
+                        <a href="#" class="alert-link">{{error}}</a>
+                    </div>
+                </div>
+                <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+                    <div class="input-group">
+                                <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">用户姓名</button>
+                                </span>
+
+                        <input class="form-control" type="text" value="" ng-model="name" ng-minlength="2"
+                               ng-maxlength="10" required placeholder="请输入用户姓名">
+
+                    </div>
+                    <span ng-show="userForm.name.$touched && userForm.name.$invalid">用户姓名为必添项.</span>
+                    <hr class="xs">
+                    <div class="input-group">
+                                <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">登录名称</button>
+                                </span>
+
+                        <input class="form-control" type="text" value=""  ng-model="username" ng-minlength="2"
+                               ng-maxlength="10" required placeholder="请输入登录名称">
+
+                    </div>
+                    <span ng-show="userForm.username.$touched && userForm.username.$invalid">登录名为必添项.</span>
+                    <hr class="xs">
+                    <div class="input-group"><!--selectedIndex="$!{state}"-->
+                                <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">性&emsp;&emsp;别</button>
+                                </span>
+                        <select name="sex" ng-model="sex.currentActivity" ng-options="a for a in activities" class="form-control" >
+                        </select>
+
+                    </div>
+                    <span ng-show="userForm.sex.$touched && userForm.sex.$invalid">性别必添项.</span>
+                    <hr class="xs">
+
+                    <div class="input-group">
+                                <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">手机号码</button>
+                                </span>
+                        <input class="form-control" type="text" value="" ng-model="phone" ng-minlength="11"
+                               ng-maxlength="11" required placeholder="请输入手机号码">
+                    </div>
+                    <span ng-show="userForm.phone.$touched && userForm.phone.$invalid">手机必添项.</span>
+                    <hr class="xs">
+
+                    <div class="input-group">
+                                <span class="input-group-btn">
+                                <button class="btn btn-success" type="button">用户邮箱</button>
+                                </span>
+                        <input class="form-control" type="text" value="" ng-model="mailbox" ng-minlength="1"
+                               ng-maxlength="25" required placeholder="用户邮箱">
+                    </div>
+                    <span ng-show="userForm.mailbox.$touched && userForm.mailbox.$invalid">用户邮箱必添项.</span>
+                    <hr class="xs">
+                    <div class="input-group"><!--selectedIndex="$!{state}"-->
+                                <span class="input-group-btn">
+                                <button class="btn btn-info" type="button">角&emsp;&emsp;色</button>
+                                </span>
+                        <select name="role" id="role" ng-model="role" class="form-control" >
+                        </select>
+                    </div>
+                    <span ng-show="userForm.role.$touched && userForm.role.$invalid">角色必添项.</span>
+                    <hr class="xs">
+                        <div class="input-group"><!--selectedIndex="$!{state}"-->
+                        <span class="input-group-btn">
+                        <button class="btn btn-success" type="button">是否有效</button>
+                        </span>
+                            <select name="isEnable" ng-model="isEnable.currentActivity"
+                                    ng-options="a for a in activitiess" class="form-control" >
+                            <!--<option value="1" selected="selected">有效</option>-->
+                            <!--<option value="0">无效</option>-->
+                            </select>
+                        </div>
+                    <span ng-show="userForm.isEnable.$touched && userForm.isEnable.$invalid">状态必添项.</span>
+                    <hr class="xs">
+                    <div class="row" style="padding: 20px 0">
+                        <div class="col-lg-4 col-lg-offset-4">
+                            <div style="width:45%;padding:0;margin:0;float:left;box-sizing:border-box;margin-right:15px;">
+                                <button class="btn btn-primary btn-block" ng-disabled="userForm.$invalid" type="submit">提交
+                                </button></div>
+                            <div style="width:45%;padding:0;margin:0;float:left;box-sizing:border-box;">
+                                <a ui-sref="user">
+                                    <button type="button" class="btn btn-primary btn-block">返回
+                                    </button>
+                                </a></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" ng-model="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    用户({{name}})添加成功!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

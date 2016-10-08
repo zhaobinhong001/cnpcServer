@@ -1,0 +1,93 @@
+
+<section class="content">
+
+
+    <!--<header class="top-head container-fluid">-->
+        <!--<button type="button" class="navbar-toggle pull-left">-->
+            <!--<span class="sr-only"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+        <!--</button>-->
+
+
+
+        <!--<nav class=" navbar-default hidden-xs" role="navigation">-->
+
+        <!--</nav>-->
+
+
+    <!--</header>-->
+    <!-- Header Ends -->
+    <user-login></user-login>
+
+    <div class="warper container-fluid">
+
+
+        <div id="oDiv" class="col-md-offset-3 col-sm-offset-3 ">
+            <!--style="display: table;width: auto;margin-left: auto;margin-right: auto;"-->
+            <div class="col-sm-5">
+                <input type="text" placeholder="请输入部门/人员"
+                       class="	 form-control ng-pristine ng-valid ng-touched"
+                       data-ng-model="todoText" id="inputVal">
+
+            </div>
+            <button type="button" class="col-sm-2 btn btn-default" id="btn">查询</button>
+        </div>
+
+        <br>
+
+
+        <div class="panel panel-default text-center" style="margin-top: 4em" >
+
+            <div class="panel-body table-responsive">
+
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="textCenter">
+                        <th>姓名</th>
+                        <th>所在部门</th>
+                        <th>职位</th>
+                        <th>注册时间</th>
+                        <th>联系方式</th>
+                        <th>审核总量</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>李四货</td>
+                        <td>运营部</td>
+                        <td>运营专员</td>
+                        <td>2015/12/21</td>
+                        <td>15011224423</td>
+                        <td>
+                            193
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                    设置权限 <span class="caret"></span></button>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li><a href="#">进行日常审核</a></li>
+                                    <li><a href="#">进行远程审核</a></li>
+                                    <li><a href="#">开通分配权限</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+</section>
+

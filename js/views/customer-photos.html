@@ -1,0 +1,36 @@
+
+<div class="panel-body">
+    <div class="panel-body text-center">
+        <p class="redBox">公安联网核查二代身份证信息</p>
+    </div>
+    <div class="photoImg">
+        <img src="/photos?path={{currentCustomer.certPhotoPath}}"  alt="公安联网核查二代身份证信息">
+    </div>
+
+</div>
+
+
+<div class="panel-body">
+    <div class="panel-body text-center">
+        <p class="redBox">现场证件照信息</p>
+
+    </div>
+    <div class="photoImg">
+        <img src="/photos?path={{currentCustomer.frontPhotoPath}}"  alt="现场证件照信息">
+    </div>
+    <div class="photoImg">
+        <img src="/photos?path={{currentCustomer.backPhotoPath}}"  alt="现场证件照信息">
+    </div>
+</div>
+
+
+<div class="panel-body">
+    <div class="panel-body text-center">
+        <p class="redBox">公安联网核查对比结果</p>
+    </div>
+
+    <div class="similar">
+        <p class="similarFont">相似度</p>
+        <p class="similarValue">{{currentCustomer.compareA.degree*100|decimal}}%</p>
+    </div>
+</div>

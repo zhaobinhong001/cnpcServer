@@ -1,0 +1,241 @@
+
+<section class="content">
+
+    <!--<header class="top-head container-fluid">-->
+        <!--<button type="button" class="navbar-toggle pull-left">-->
+            <!--<span class="sr-only">Toggle navigation</span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+        <!--</button>-->
+        <!--<nav class=" navbar-default hidden-xs" role="navigation">-->
+        <!--</nav>-->
+    <!--</header>-->
+    <user-login></user-login>
+    <div class="warper container-fluid">
+
+        <div class="page-header">
+            <h3>系统当前位置:账户中心>>角色管理</h3>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">角色列表</div>
+            <div class="panel-body">
+                <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered"
+                       id="basic-datatable">
+                </table>
+                <a ui-sref="addRole"><button type="button" class="btn btn-default" id="btn" >添加角色</button></a>
+                <button type="button" class="btn btn-default" ng-click="updateRole()" >角色修改</button>
+                <button type="button" class="btn btn-default" ng-click="queryRole()" >详细信息</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="roleInfoViewModal"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">系统当前位置:账户中心>>角色管理>>角色详情</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="fromnames">
+                        <div class="form-group">
+                            <label for="name" class="control-label">角色名称:</label>
+                            <input type="text" ng-model="name" class="form-control" readonly id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="describe" class="control-label">角色描述:</label>
+                            <input type="text" ng-model="describe" class="form-control" readonly id="describe">
+                        </div>
+                        <div class="form-group">
+                            <label for="menus" class="control-label">系统功能权限:</label>
+                            <input type="text" ng-model="menus" class="form-control" readonly id="menus">
+                        </div>
+                        <div class="form-group">
+                            <label for="createDate" class="control-label">创建时间:</label>
+                            <input type="text" ng-model="createDate" class="form-control" readonly id="createDate">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="roleInfoViewModals"   tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">系统当前位置:账户中心>>角色管理>>角色修改</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="fromnamess">
+                            <input ng-model="id" id="ids" type=text style="display:none">
+                        <div class="form-group">
+                            <label for="name" class="control-label">角色名称:</label>
+                            <input type="text" ng-model="name" class="form-control"  id="names" maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="describe" class="control-label">角色描述:</label>
+                            <input type="text" ng-model="describe" class="form-control"  id="describes" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="menus" class="control-label">角色功能权限:</label>
+                            <ul id="treeDemo" class="tree"></ul>
+                        </div>
+                        <div class="form-group">
+                            <label for="createDate" class="control-label">创建时间:</label>
+                            <input type="text" ng-model="createDate" class="form-control" readonly id="createDates">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default"  ng-click="saveRole()">保存</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" ng-model="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    角色({{name}})修改成功!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModals" ng-model="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    角色名称已被使用!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalss" ng-model="myModals" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                    请选择功能权限!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="btnDismiss()">关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/jquery.dataTables.js"></script>
+<script src="js/DT_bootstrap.js"></script>
+<script type="text/javascript">
+</script>
+<style type="text/css">
+    .tree * {padding:0; margin:0; font-size:12px; font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif}
+    .tree {margin:0; padding:5px; color:#333}
+    .tree li{padding:0; margin:0; list-style:none; line-height:14px; text-align:left; white-space:nowrap; outline:0}
+    .tree li ul{ margin:0; padding:0 0 0 18px}
+    .tree li ul.line{ background:url(libs/ztree/css/zTreeStyle/img/line_conn.gif) 0 0 repeat-y;}
+    .tree li a {padding:1px 3px 0 0; margin:0; cursor:pointer; height:17px; color:#333; background-color: transparent;
+        text-decoration:none; vertical-align:top; display: inline-block}
+    .tree li a:hover {text-decoration:underline}
+    .tree li a.curSelectedNode {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}
+    .tree li a.curSelectedNode_Edit {padding-top:0px; background-color:#FFE6B0; color:black; height:16px; border:1px #FFB951 solid; opacity:0.8;}
+    .tree li a.tmpTargetNode_inner {padding-top:0px; background-color:#316AC5; color:white; height:16px; border:1px #316AC5 solid;
+        opacity:0.8; filter:alpha(opacity=80)}
+    .tree li a.tmpTargetNode_prev {}
+    .tree li a.tmpTargetNode_next {}
+    .tree li a input.rename {height:14px; width:80px; padding:0; margin:0;
+        font-size:12px; border:1px #7EC4CC solid; *border:0px}
+    .tree li span {line-height:16px; margin-right:2px}
+    .tree li span.button {line-height:0; margin:0; width:16px; height:16px; display: inline-block; vertical-align:middle;
+        border:0 none; cursor: pointer;outline:none;
+        background-color:transparent; background-repeat:no-repeat; background-attachment: scroll;
+        background-image:url("libs/ztree/css/zTreeStyle/img/zTreeStandard.png"); *background-image:url("libs/ztree/css/zTreeStyle/img/zTreeStandard.gif")}
+    .tree li span.button.chk {width:13px; height:13px; margin:0 3px 0 0; cursor: auto}
+    .tree li span.button.chk.checkbox_false_full {background-position:0 0}
+    .tree li span.button.chk.checkbox_false_full_focus {background-position:0 -14px}
+    .tree li span.button.chk.checkbox_false_part {background-position:0 -28px}
+    .tree li span.button.chk.checkbox_false_part_focus {background-position:0 -42px}
+    .tree li span.button.chk.checkbox_false_disable {background-position:0 -56px}
+    .tree li span.button.chk.checkbox_true_full {background-position:-14px 0}
+    .tree li span.button.chk.checkbox_true_full_focus {background-position:-14px -14px}
+    .tree li span.button.chk.checkbox_true_part {background-position:-14px -28px}
+    .tree li span.button.chk.checkbox_true_part_focus {background-position:-14px -42px}
+    .tree li span.button.chk.checkbox_true_disable {background-position:-14px -56px}
+    .tree li span.button.chk.radio_false_full {background-position:-28px 0}
+    .tree li span.button.chk.radio_false_full_focus {background-position:-28px -14px}
+    .tree li span.button.chk.radio_false_part {background-position:-28px -28px}
+    .tree li span.button.chk.radio_false_part_focus {background-position:-28px -42px}
+    .tree li span.button.chk.radio_false_disable {background-position:-28px -56px}
+    .tree li span.button.chk.radio_true_full {background-position:-42px 0}
+    .tree li span.button.chk.radio_true_full_focus {background-position:-42px -14px}
+    .tree li span.button.chk.radio_true_part {background-position:-42px -28px}
+    .tree li span.button.chk.radio_true_part_focus {background-position:-42px -42px}
+    .tree li span.button.chk.radio_true_disable {background-position:-42px -56px}
+    .tree li span.button.switch {width:18px; height:18px}
+    .tree li span.button.root_open{background-position:-92px -54px}
+    .tree li span.button.root_close{background-position:-74px -54px}
+    .tree li span.button.roots_open{background-position:-92px 0}
+    .tree li span.button.roots_close{background-position:-74px 0}
+    .tree li span.button.center_open{background-position:-92px -18px}
+    .tree li span.button.center_close{background-position:-74px -18px}
+    .tree li span.button.bottom_open{background-position:-92px -36px}
+    .tree li span.button.bottom_close{background-position:-74px -36px}
+    .tree li span.button.noline_open{background-position:-92px -72px}
+    .tree li span.button.noline_close{background-position:-74px -72px}
+    .tree li span.button.root_docu{ background:none;}
+    .tree li span.button.roots_docu{background-position:-56px 0}
+    .tree li span.button.center_docu{background-position:-56px -18px}
+    .tree li span.button.bottom_docu{background-position:-56px -36px}
+    .tree li span.button.noline_docu{ background:none;}
+    .tree li span.button.ico_open{margin-right:2px; background-position:-110px -16px; vertical-align:top; *vertical-align:middle}
+    .tree li span.button.ico_close{margin-right:2px; background-position:-110px 0; vertical-align:top; *vertical-align:middle}
+    .tree li span.button.ico_docu{margin-right:2px; background-position:-110px -32px; vertical-align:top; *vertical-align:middle}
+    .tree li span.button.edit {margin-right:2px; background-position:-110px -48px; vertical-align:top; *vertical-align:middle}
+    .tree li span.button.remove {margin-right:2px; background-position:-110px -64px; vertical-align:top; *vertical-align:middle}
+    .tree li span.button.ico_loading{margin-right:2px; background:url(libs/ztree/css/zTreeStyle/img/loading.gif) no-repeat scroll 0 0 transparent; vertical-align:top; *vertical-align:middle}
+    code {color: #2f332a;}
+    .highlight_red {color:#A60000;}
+    .highlight_green {color:#A7F43D;}
+    li.title {list-style: none;}
+    ul.list {margin-left: 17px;}
+    div.content_wrap {width: 600px;height:380px;}
+    div.content_wrap div.left{float: left;width: 250px;}
+    div.content_wrap div.right{float: right;width: 340px;}
+    div.zTreeDemoBackground {width:250px;height:362px;text-align:left;}
+    ul.tree {margin-top: 10px;border: 1px solid #617775;width:564px;overflow-y:scroll;overflow-x:auto;}
+    ul.log {border: 1px solid #617775;background: #f0f6e4;width:300px;height:170px;overflow: hidden;}
+    ul.log.small {height:45px;}
+    ul.log li {color: #666666;list-style: none;padding-left: 10px;}
+    ul.log li.dark {background-color: #E3E3E3;}
+    /* ruler */
+    div.ruler {height:20px; width:220px; background-color:#f0f6e4;border: 1px solid #333; margin-bottom: 5px; cursor: pointer}
+    div.ruler div.cursor {height:20px; width:30px; background-color:#3C6E31; color:white; text-align: right; padding-right: 5px; cursor: pointer}
+</style>

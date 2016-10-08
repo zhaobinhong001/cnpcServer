@@ -1,13 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html style="height: 100%;" lang="en" ng-app="App">
 <head>
-<meta http-equiv="refresh" content="0;url=pages/index.html">
-<title>后台</title>
-<script language="javascript">
-    window.location.href = "pages/login.html"
-</script>
+    <meta charset="utf-8">
+    <title>主页</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="./vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="./vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- styles css -->
+    <link rel="stylesheet" href="./dist/css/styles.css">
+
+    <!-- jQuery -->
+    <script src="./vendor/jquery/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        //var U_HOST_URL = "http://127.0.0.1:3000/";
+        //var U_HOST_URL = "http://223.223.192.170:3000";
+
+
+        var U_HOST_URL = "/";
+        //var HOST_URL = "http://10.7.7.100:3003/";
+        //var TEST_HOST_URL = "http://10.7.7.100:8667";
+        // var TURN_URL = "turn:10.7.7.100:3478";
+    </script>
+
+    <!--<script src="libs/jquery/dist/jquery.js"></script>-->
+    <!--<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>-->
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-resource/angular-resource.js"></script>
+    <!--<script src="libs/angular-route/angular-route.js"></script>-->
+    <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 </head>
-<body>
-Go to <a href="pages/index.html">/pages/login.html</a>
+<body style="height: 100%;">
+<!--<p>日期：<input type="text" id="datestart"> to  <input type="text" id="dateto">   <input type="submit" value="查询"></p>-->
+<div style="height: 100%;" ui-view=""></div>
+
+
+
+
+<script type="text/javascript" src="libs/sha256/scripts/qunit.js"></script>
+<script type="text/javascript" src="libs/sha256/scripts/sha256.jquery.debug.js"></script>
+<script src="js/app.module.js"></script>
+<script src="js/app.config.js"></script>
+<script src="js/core/core.module.js"></script>
+<script src="js/core/auth/auth.module.js"></script>
+<script src="js/core/auth/auth.service.js"></script>
+<style>
+    table.dataTable tbody th, table.dataTable th, table.dataTable tbody td {
+
+        text-align: center;
+    }
+</style>
+
+
 </body>
 </html>

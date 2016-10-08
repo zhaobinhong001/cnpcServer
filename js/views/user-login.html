@@ -1,0 +1,108 @@
+<style type="text/css">
+    .userLogin {
+
+        font-size: 12px;
+        width: 80px;
+        height: 54px;
+        display: block;
+        background-image: url(images/avtar/user-login.png);
+        background-repeat: no-repeat;
+        background-position: top center;
+
+    }
+
+    .welcome {
+        width: 200px;
+        padding-top: 12px;
+        overflow: hidden;
+    }
+
+    .welcome span {
+        float: left;
+
+    }
+
+    .Serch input {
+        float: left;
+        display: inline-block;
+        width: 13em;
+        height: 2em;
+        margin-top: 2em;
+        border: none;
+        border-bottom: 2px solid #cecece;
+        outline: none;
+    }
+
+    .Serch i {
+        float: left;
+        display: inline-block;
+        margin-top: 2em;
+        margin-right: 1em;
+        font-size: 1.3em;
+    }
+
+    header {
+        background: #fff;
+
+    }
+
+
+    .photoImg img {
+        width: 100%;
+        height: 100%;
+
+        border: none;
+
+    }
+
+    .leftX p, .rightX p {
+        padding-left: 12px;
+    }
+
+    .terminalData span {
+        padding-right: 4em;
+        position: relative;
+    }
+
+    ::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #e7e8e8;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #fe5454;
+    }
+    .YJL img, .YJR img {
+        width: 100%;
+        height: 100%;
+    }
+    .findingsOfAudit input {
+        margin-left: 30px;
+        outline: none;
+    }
+    .autograph p{
+        line-height: 30px;
+    }
+
+
+    .passWord {
+        margin-right: 1em;
+    }
+</style>
+
+<header class="top-head container-fluid" style="height: 96px;line-height: 96px;">
+    <!--<div class="Serch">-->
+        <!--<i class="fa fa-search"></i>-->
+        <!--<input type="text" placeholder="搜索">-->
+    <!--</div>-->
+    <div id="welcome" class=" pull-right hidden-xs welcome">
+            <span class="text-center">
+                 <i class="text-center userLogin">{{aa}}</i>
+            </span>
+        <a class="passWord" ui-sref="updateUserPwd">修改密码</a><span></span>
+        <a class="Out" ui-sref="auth">登出</a><span></span>
+    </div>
+</header>

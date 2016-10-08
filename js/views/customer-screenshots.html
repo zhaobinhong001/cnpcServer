@@ -1,0 +1,47 @@
+<!--
+<ng-repeat ng-repeat="screenshot in currentCustomer.screenshots">
+        <td ng-click="selectTheImgToCompare('ss_td_'+ screenshot.id,screenshot.photoPath)" id="ss_td_{{screenshot.id}}">
+            <div class=" borderDashed smallPhoto" style="margin-left: 12px; ">
+                <img src="/photos?path={{ screenshot ? screenshot.photoPath : ''}}" alt="">
+            </div>
+        </td>
+</ng-repeat>
+-->
+
+
+<!--<span class="nav-label" >{{menu.name}} </span></a>-->
+<!--<ul class="list-unstyled" ng-repeat="submenu in menu.children ">-->
+    <!--<li><a ui-sref="{{submenu.urls}}">{{submenu.name}}</a></li>-->
+<!--</ul>-->
+<table>
+    <tr>
+        <td>
+            <div class=" borderDashed smallPhoto1 YJL" style="margin-left: 12px; " id="ss_td_{{currentCustomer.screenshots[0].id}}">
+                <img src="{{ currentCustomer.screenshots[0] ? '/photos?path='+currentCustomer.screenshots[0].photoPath : ''}}" alt="">
+            </div>
+        </td>
+        <td>
+            <div class=" borderDashed smallPhoto1 YJL" style="margin-left: 12px; " id="ss_td_{{currentCustomer.screenshots[1].id}}">
+                <img src="{{ currentCustomer.screenshots[1] ? '/photos?path='+currentCustomer.screenshots[1].photoPath : ''}}" alt="">
+            </div>
+        </td>
+
+
+        <td ng-repeat="screenshot in (currentCustomer.screenshots | limitTo:100:2)"  >
+            <div class=" borderDashed smallPhoto1 YJL" style="margin-left: 12px; " id="ss_td_{{screenshot.id}}">
+                <img src="{{ screenshot ? '/photos?path='+screenshot.photoPath : ''}}" alt="">
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<!--<div class="panel-body">-->
+    <!--<div class=" borderDashed col-md-5 YJL">-->
+        <!--<img src="/photos?path={{currentCustomer.certPhotoPath}}" alt="">-->
+
+    <!--</div>-->
+    <!--<div class=" borderDashed col-md-5 YJR">-->
+        <!--<img src="/photos?path={{currentCustomer.frontPhotoPath}}" alt="">-->
+    <!--</div>-->
+<!--</div>-->

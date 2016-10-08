@@ -1,0 +1,49 @@
+<table>
+    <tr>
+
+        <td    ng-click="selectTheImgToCompare(currentCustomer.snapshots[0])"  >
+            <div class=" borderDashed  smallPhoto" style="margin-left: 12px; position: relative; overflow:hidden; " id="ss_td_{{currentCustomer.snapshots[0].id}}">
+
+                <img id="ss_td_{{currentCustomer.snapshots[0].id}}_img" src="{{ currentCustomer.snapshots[0] ? '/photos?path='+currentCustomer.snapshots[0].photoPath : ''}}" alt="">
+                <span id="cover_{{currentCustomer.snapshots[0].id}}"></span>
+            </div>
+        </td>
+        <td    ng-click="selectTheImgToCompare(currentCustomer.snapshots[1])"  >
+            <div class=" borderDashed  smallPhoto" style="margin-left: 12px; position: relative; overflow:hidden; " id="ss_td_{{currentCustomer.snapshots[1].id}}">
+
+                <img id="ss_td_{{currentCustomer.snapshots[1].id}}_img" src="{{ currentCustomer.snapshots[0] ? '/photos?path='+currentCustomer.snapshots[1].photoPath : ''}}" alt="">
+                <span id="cover_{{currentCustomer.snapshots[1].id}}"></span>
+            </div>
+        </td>
+        <td    ng-click="selectTheImgToCompare(currentCustomer.snapshots[2])"  >
+            <div class=" borderDashed  smallPhoto" style="margin-left: 12px; position: relative; overflow:hidden; " id="ss_td_{{currentCustomer.snapshots[2].id}}">
+
+                <img id="ss_td_{{currentCustomer.snapshots[2].id}}_img" src="{{ currentCustomer.snapshots[2] ? '/photos?path='+currentCustomer.snapshots[2].photoPath : ''}}" alt="">
+                <span id="cover_{{currentCustomer.snapshots[2].id}}"></span>
+            </div>
+        </td>
+        <td    ng-click="selectTheImgToCompare(currentCustomer.snapshots[3])"  >
+            <div class=" borderDashed  smallPhoto" style="margin-left: 12px; position: relative; overflow:hidden; " id="ss_td_{{currentCustomer.snapshots[3].id}}">
+
+                <img id="ss_td_{{currentCustomer.snapshots[3].id}}_img" src="{{ currentCustomer.snapshots[3] ? '/photos?path='+currentCustomer.snapshots[3].photoPath : ''}}" alt="">
+                <span id="cover_{{currentCustomer.snapshots[3].id}}"></span>
+            </div>
+        </td>
+        <td    ng-click="selectTheImgToCompare(currentCustomer.snapshots[4])"  >
+            <div class=" borderDashed  smallPhoto" style="margin-left: 12px; position: relative; overflow:hidden; " id="ss_td_{{currentCustomer.snapshots[4].id}}">
+
+                <img id="ss_td_{{currentCustomer.snapshots[4].id}}_img" src="{{ currentCustomer.snapshots[4] ? '/photos?path='+currentCustomer.snapshots[4].photoPath : ''}}" alt="">
+                <span id="cover_{{currentCustomer.snapshots[4].id}}"></span>
+            </div>
+        </td>
+
+        <td ng-repeat="snapshot in (currentCustomer.snapshots | limitTo:100:5)"  ng-click="selectTheImgToCompare(snapshot)"  >
+            <div class=" borderDashed  smallPhoto" style="margin-left: 12px; position: relative; overflow:hidden; " id="ss_td_{{snapshot.id}}">
+
+                <img id="ss_td_{{snapshot.id}}_img" src="{{ snapshot ? '/photos?path='+snapshot.photoPath : ''}}" alt="">
+                <span id="cover_{{snapshot.id}}"></span>
+            </div>
+        </td>
+    </tr>
+</table>
+

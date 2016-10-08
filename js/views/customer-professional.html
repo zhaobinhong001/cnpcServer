@@ -1,0 +1,69 @@
+<div class="panel-body">
+    <div class="BT">业务处理信息</div>
+    <div class="col-md-12" id="BT">
+        <!--    <button class="Btn btnLef pull-left btnActive margn" id="terminal">远程开户</button>
+            <button class="Btn btnLef pull-left margn" id="phoneBank">手机银行签约</button>
+            <button class="Btn btnLef pull-left margn" id="remind">短信动账提醒</button>
+            <button class="Btn btnLef pull-left margn" id="buyFinancial">购买理财产品</button>
+    -->
+        <button ng-repeat="business in allBusiness"
+                class="Btn btnLef pull-left margn {{business.choose ? 'btnActive':''}}" id="{{business.id}}">
+            {{business.name}}
+        </button>
+    </div>
+    <div class="text-left busEle">当前业务：<span id="business">{{currentBusiness.name}}</span></div>
+
+</div>
+
+<div class="panel-body text-left">
+    <div class="step_context test"></div>
+    <div ng-if="(currentBusiness.type==1) && (currentBusiness.currentStep==3)">
+        <div class="autograph col-md-12">
+            <span class="col-lg-3">电子签名:</span> <span class="autographImg col-md-9">
+            <img src="{{currentBusiness.signImgData}}">
+            </span>
+        </div>
+    </div>
+    <div ng-if="(currentBusiness.type==2) && (currentBusiness.currentStep==4)">
+        <div class="autograph col-md-12" id="autograph">
+            <p>
+                单笔限额：<span class="nodeText">{{currentBusiness.perLimit|decimal}}元</span>
+                单日限额：<span class="nodeText">{{currentBusiness.perDayLimit|decimal}}元</span>
+                短信验证起点金额：<span class="nodeText">{{currentBusiness.smsVerStartAmount|decimal}}元</span>
+            </p>
+        </div>
+        <div class="autograph col-md-12">
+            <span class="col-lg-3">电子签名:</span> <span class="autographImg col-md-9">
+            <img src="{{currentBusiness.signImgData}}">
+            </span>
+        </div>
+    </div>
+    <div ng-if="(currentBusiness.type==3) && (currentBusiness.currentStep==4)">
+        <div class="autograph col-md-12" id="autograph">
+            <p>
+                提醒起点金额：<span class="nodeText">{{currentBusiness.smsActionStartAmount|decimal}}元</span>
+            </p>
+        </div>
+
+        <div class="autograph col-md-12">
+            <span class="col-lg-3">电子签名:</span> <span class="autographImg col-md-9">
+            <img src="{{currentBusiness.signImgData}}">
+            </span>
+        </div>
+    </div>
+    <div ng-if="(currentBusiness.type==4) && (currentBusiness.currentStep==5)">
+        <div class="autograph col-md-12" id="autograph">
+            <p>
+                风险评估类型：<span class="nodeText">{{currentBusiness.assessType}}</span>
+                理财产品名称：<span class="nodeText">{{currentBusiness.productName}}</span>
+                购买金额：<span class="nodeText">{{currentBusiness.amount}}</span>
+            </p>
+        </div>
+        <div class="autograph col-md-12">
+            <span class="col-lg-3">电子签名:</span> <span class="autographImg col-md-9">
+            <img src="{{currentBusiness.signImgData}}">
+            </span>
+        </div>
+    </div>
+</div>
+

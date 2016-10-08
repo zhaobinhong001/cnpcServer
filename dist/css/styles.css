@@ -139,7 +139,6 @@ span.icon-bac i {
 
 table {
     width: 100%;
-    margin-top: 30px;
 }
 
 th {
@@ -356,3 +355,6 @@ th {
 }
 
 
+.paging_simple_numbers{
+    display: inline-block;
+}

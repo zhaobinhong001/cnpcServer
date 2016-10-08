@@ -1,0 +1,578 @@
+
+<link rel="stylesheet" href="css/app/step-dc-style2.css">
+<script type="text/javascript" src="js/app/step-jquery-dc.js"></script>
+
+<style type="text/css">
+    .userLogin {
+
+        font-size: 12px;
+        width: 54px;
+        height: 54px;
+        display: block;
+        background-image: url(assets/images/avtar/user.png);
+        background-repeat: no-repeat;
+        background-position: top center;
+
+    }
+
+    .welcome {
+        width: 200px;
+        padding-top: 12px;
+        overflow: hidden;
+    }
+
+    .welcome span {
+        float: left;
+
+    }
+
+    .Serch input {
+        float: left;
+        display: inline-block;
+        width: 13em;
+        height: 2em;
+        margin-top: 2em;
+        border: none;
+        border-bottom: 2px solid #cecece;
+        outline: none;
+    }
+
+    .Serch i {
+        float: left;
+        display: inline-block;
+        margin-top: 2em;
+        margin-right: 1em;
+        font-size: 1.3em;
+    }
+
+    header {
+        background: #fff;
+
+    }
+
+    .redBox {
+        background: #3b3b3b;
+        color: #fff;
+        font-size: 18px;
+        height: 56px;
+        line-height: 56px;
+        border-radius: 5px;
+    }
+
+    .photoImg {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 315px;
+        height: 14em;
+        line-height: 190px;
+        border: 2px dashed #707070;
+        border-radius: 5px;
+        margin-bottom: 3em;
+    }
+
+    .photoImg img {
+        width: 100%;
+        height: 100%;
+
+        border: none;
+
+    }
+
+    .similar p{
+        display: inline-block;
+    }
+    .similarFont {
+        font-size: 20px;
+        color: #000;
+    }
+
+    .similarValue {
+        font-size: 46px;
+        color: #fe5454;
+    }
+
+    .Logout {
+        width: 150px;
+        height: 40px;
+        position: absolute;
+        left: 40px;
+        bottom: 2em;
+
+    }
+
+    .borderDashed {
+        border: 2px dashed #707070;
+        border-radius: 4px;
+    }
+
+    .box_cover {
+        opacity:.5;
+        display: block;
+        width:100%;
+        height:100%;
+        position: absolute;
+        top:0;
+        left:0;
+        background-color:#000;
+    }
+
+    .borderSelected {
+        opacity: 0.6;
+        background: rgb(0, 0, 0);
+
+    }
+    .call {
+        width: 168px;
+        height: 46px;
+        margin-top: 4em;
+
+    }
+
+    .Btn, .call, .Logout {
+        outline: none;
+        background: #fe5454;
+        border: none;
+        color: #fff;
+        border-radius: 4px;
+    }
+
+    .vodBox {
+
+        height: auto;
+        padding: 0;
+        vertical-align: bottom;
+    }
+
+
+     .vodBoxT {
+         height: auto;
+          width: 30%;
+         right: 0;
+         padding: 0;
+
+         float: right;
+         bottom: 0;
+         position: absolute;
+         vertical-align: bottom;
+         margin: 0 15px 15px 0;
+
+
+        }
+    .Btn {
+        height: 46px;
+        padding: 0 27px;
+    }
+
+    .btnLef {
+        background: #aaaaaa;
+        color: #fff;
+    }
+
+    .btnActive {
+        background-color: #3b3b3b;
+    }
+
+    .BT {
+
+        height: 52px;
+        line-height: 52px;
+        font-size: 18px;
+        text-align: left;
+        padding-left: 16px;
+        margin-top: 50px;
+        background: #e7e8e8;
+        border-radius: 10px;
+
+    }
+
+    .leftX, .rightX {
+        width: 49%;
+        display: inline-block;
+        text-align: justify;
+        height: 46px;
+        line-height: 46px;
+        color: #000;
+
+    }
+
+    .leftX p, .rightX p {
+        padding-left: 12px;
+    }
+
+    .terminalData {
+        text-align: left;
+        color: #000;
+        padding-left: 16px;
+        height: 46px;
+        line-height: 46px;
+
+    }
+
+    .terminalData span {
+        padding-right: 4em;
+        position: relative;
+    }
+
+    .photoK {
+        height: 140px;
+        width: 100%;
+        overflow: auto;
+
+    }
+    .photoJ {
+        height: 210px;
+
+        width: 100%;
+        overflow: auto;
+
+    }
+
+    .smallPhoto {
+        float: left;
+        width: 150px;
+        height: 110px;
+        margin: 10px 8px;
+        position: relative;
+        cursor: pointer;
+    }
+    .smallPhoto1 {
+        float: left;
+        width: 276px;
+        height: 180px;
+        margin: 10px 8px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    ::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background-color: #e7e8e8;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #fe5454;
+    }
+
+    /*        ::-webkit-scrollbar-thumb:hover {background-color:#9c3}
+            ::-webkit-scrollbar-thumb:active {background-color:#00aff0}*/
+    .YJL, .YJR {
+        max-width: 340px;;
+        min-width: 280px;
+        height: 183px;
+
+    }
+
+    .YJL img, .YJR img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .YJL {
+        margin-left: 12px;
+        float: left;
+    }
+
+    .YJR {
+        float: right;
+        margin-right: 12px;
+    }
+
+    .textStyle {
+        padding-left: 12px;
+        color: #000;
+    }
+
+    .findingsOfAudit {
+        font-size: 24px;
+        color: #000;
+    }
+
+    .findingsOfAudit input {
+        margin-left: 30px;
+        outline: none;
+    }
+
+    .margn {
+        margin: 2rem 1rem 2rem 0;
+        max-width: 11em;
+    }
+
+    .busEle {
+        padding-left: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #282828;
+    }
+
+    .autograph {
+        padding-left: 14px;
+        line-height: 10em;
+        color: #000;
+        font-weight: bold;
+    }
+
+    .autographImg {
+        height: 10em;
+        line-height: 10em;
+        border: 2px dashed #707070;
+        border-radius: 4px;
+    }
+    .autographImg  img{
+        height:100%;
+    }
+
+    .preValue, .userStatus {
+        font-weight: bold;
+        color: #282828;
+        margin-right: 2em;
+    }
+
+    .BtnA {
+        background-color: #aaaaaa;
+        margin: 0 2em;
+        padding: 0 3em;
+    }
+
+    .passWord {
+        margin-right: 1em;
+    }
+
+    .customerList {
+        padding-right: 14px;
+    }
+
+    .greenColor{
+        color: green;
+        left: 50%;
+        top: 50%;
+        margin: -7px 0 0 -6px;
+        position: absolute;
+    }
+    .title {
+        text-align: left;
+    }
+    .page-header {
+    padding-bottom: 9px;
+    /* margin: 40px 0 20px; */
+    /* border-bottom: 1px solid #eee; */
+    padding-left: 15px;
+    }
+</style>
+
+<section class="content" id="VIP">
+
+    <div class="modal js-loading-bar">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="progress progress-popup">
+                        <div class="progress-bar">
+                         <span id="progress_value">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <user-login></user-login>
+    <div class="warper container-fluid text-center " id="review_content">
+        <div class="page-header title">
+            <h3>系统当前位置:坐席中心>>人工坐席</h3>
+        </div>
+        <div class="col-md-8">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <p >
+                    <h5 id="sum" class="pull-left" style="margin-right: 100px">正在准备...</h5>
+                    <h5 class="pull-left" > 当前状态: <span id="userStatus"
+                                                        class="userStatus">
+                        <ANY ng-switch="serviceState">
+                            <ANY ng-switch-when="1">忙碌中</ANY>
+                            <ANY ng-switch-when="2">通话中</ANY>
+                            <ANY ng-switch-default>空闲中</ANY>
+                        </ANY>
+                    </span>
+                        </h5>
+                    </p>
+                </div>
+                <div class="panel-body" >
+                    <p>
+                        <button class="Btn pull-left" style="margin-right: 40px"  id="buss_action" ng-click="toggleChangeState(1)">示忙</button>
+                        <button class="Btn pull-left"  style="margin-right: 40px"  id="idle_action"  ng-click="toggleChangeState(0)">示闲</button>
+                        <button class="Btn pull-left" id="call" ng-click="toggleCall()"  style="margin-right: 40px">摘机</button>
+                        <button class="Btn btnLef pull-left" id="hangup" ng-click="toggleHangup()" style="margin-right: 40px ;display: none">挂机</button>
+                    </p>
+                </div>
+                <div class="panel-body"style="position: relative">
+                    <div >
+                        <div class="videoArea" >
+                            <video id="remoteVideo"  style="background:transparent url('images/loading/07.png') 50% 50% no-repeat" class="col-md-8 borderDashed vodBox"  autoplay>
+                            </video>
+                            <video id="localVideo"  style="background:transparent url('images/loading/08.png') 50% 50% no-repeat"  class="col-md-4 borderDashed vodBoxT"  autoplay>
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <p>
+                        <button class="Btn btnLef pull-left" id="snapshot"  ng-click="toggleSnapshot()" style="margin-right: 20px">抓拍</button>
+                        <button class="Btn btnLef pull-left" id="screenshot" ng-click="toggleScreenshot()" >终端截屏存档</button>
+                   <!--    <button class="Btn pull-right">呼叫保持</button>-->
+                    </p>
+                </div>
+                <div class="panel-body">
+                    <div class="BT">客户信息</div>
+                    <customer></customer>
+                </div>
+
+                <customer-professional></customer-professional>
+
+
+                <div class="panel-body">
+                    <div class="BT">终端信息</div>
+                    <div>
+                        <customerconnects></customerconnects>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="BT">操作信息</div>
+
+                    <div class="photoK">
+                        <customer-snapshots></customer-snapshots>
+                    </div>
+                    <br>
+                    <div class="photoJ">
+                        <customerscreenshots></customerscreenshots>
+                    </div>
+
+                </div>
+
+                <customercompare></customercompare>
+                <!--
+                <div class="panel-body">
+                    <div class=" borderDashed col-md-5 YJL">
+                        <img src="images/loading/09.png" alt="">
+
+                    </div>
+                    <div class=" borderDashed col-md-5 YJR">
+                        <img src="images/loading/09.png" alt="">
+                    </div>
+                </div>
+
+
+                <div class="panel-body text-left">
+                    <p class="textStyle">
+                        抓拍照与公安联网核查照对比结果：<span class="similarValue">90%</span>
+                    </p>
+                </div>
+                <div class="panel-body text-right">
+                    <p class="textStyle">
+                        抓拍照与历史证件照对比结果：<span class="similarValue">90%</span>
+                    </p>
+                </div>
+-->
+                <div class="panel-body">
+
+                    <form action="" class="findingsOfAudit">
+                        <p>人工审核结果：
+                            <label>
+                                <input class="yn" id="confirmRadioYes" type="radio" value="yes" name="y" ng-click="confirmReview(1)" style="border: 1px solid #00a0e6;">通过
+                            </label>
+                            <label>
+                                <input class="yn" id="confirmRadioNo" type="radio" value="no" name="y" ng-click="confirmReview(2)">未通过
+                            </label>
+                        </p>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="panel panel-default">
+
+                <customerphotos></customerphotos>
+<!--
+                <div class="panel-body">
+                    <div class="panel-body text-center">
+                        <p class="redBox">公安联网核查二代身份证信息</p>
+                    </div>
+                    <div class="photoImg">
+                        <img src="images/loading/09.png" alt="公安联网核查二代身份证信息">
+                    </div>
+
+                </div>
+
+
+                <div class="panel-body">
+                    <div class="panel-body text-center">
+                        <p class="redBox">现场证件照信息</p>
+
+                    </div>
+                    <div class="photoImg">
+                        <img src="images/loading/09.png" alt="现场证件照信息">
+                    </div>
+                    <div class="photoImg">
+                        <img src="images/loading/09.png" alt="现场证件照信息">
+                    </div>
+                </div>
+
+
+                <div class="panel-body">
+                    <div class="panel-body text-center">
+                        <p class="redBox">公安联网核查对比结果</p>
+
+                    </div>
+
+                    <div class="similar">
+                        <p class="similarFont">相似度</p>
+                        <p class="similarValue">90%</p>
+                    </div>
+                </div>
+-->
+
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+
+    <div class="modal fade" id="confirmModal"   tabindex="-1" role="dialog" aria-labelledby="warnModallab">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示信息</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="comfirmMessage">{{comfirmMessage}}</p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="submitReview()">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="canncelChecked()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/rtc/socket.io-1.4.8.js"></script>
+    <script src="js/rtc/adapter.js"></script>
+    <!--<script src="js/rtc/offer.js"></script>-->
+    <!-- Warper Ends Here (working area) -->
+
+
+</section>

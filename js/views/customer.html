@@ -1,0 +1,10 @@
+<div class="leftX">
+    <p>客户姓名：<span id="customer_name"  >{{currentCustomer.name}}</span></p>
+   <!-- <p>联系方式：<span id="customer_phone">{{currentCustomer.phone}}</span></p>-->
+    <p>证件类型：<span id="customer_cert_type">{{currentCustomer == null ? '' : (currentCustomer.certType=='1' ? "身份证":'其他') }}</span></p>
+</div>
+<div class="rightX">
+    <p>性别：<span id="customer_sex">{{ currentCustomer == null ? '' :  (currentCustomer.sex=='1' ? "男":'女') }}</span></p>
+    <!--  <p>地址：<span id="customer_address">{{currentCustomer.address}}</span></p>-->
+    <p>证件号：<span id="customer_cert_num">{{currentCustomer.certId}}</span></p>
+</div>
